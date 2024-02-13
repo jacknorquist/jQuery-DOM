@@ -74,13 +74,30 @@
   <script>
     $('article img').addClass('image-center');
     $('article p').eq(5).remove();
-    $('#title').css('font-size', `${(Math.floor(Math.random()) * 100)}px`);
+    $('#title').css('font-size', `${Math.floor(Math.random() * 101)}px`);
 
     let $addedLI = $('<li>');
     $addedLI.text('This is a list item.');
     $('ol').append($addedLI);
 
     $('aside').text("Silly list was removed, we're deeply sorry for it's existencence.")
+
+    $(".form-control")
+        .on("change", function getColorValues(evt) {
+          let $red = $("input").eq(0).val();
+          let $blue = $("input").eq(1).val();
+          let $green = $("input").eq(2).val();
+
+          $("body").css("background-color", `rgb(${$red},${$blue},${$green})`)
+        })
+
+
+
+    $("article img").on("click", function removeImage(evt) {
+      $(evt.target).remove();
+    });
+
+
 
   </script>
 </body>
